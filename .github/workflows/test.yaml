@@ -1,1 +1,13 @@
-
+name: My first action test
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to Greeed'
+        default: 'Aziz'
+jobs:
+  test:
+    run-on: ubuntu-latest
+    steps:
+      - name: First interaction
+        run: echo "Test Job 1 - Hello ${{ github.event.inputs.name }}, run-job-3 equals ${{ github.event.inputs.run-job-3 }}"
