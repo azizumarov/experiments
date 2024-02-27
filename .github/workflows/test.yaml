@@ -9,8 +9,16 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: First interaction
+      - name: First interaction Action 1
         run: echo "Test action 1 - Hello ${{ github.event.inputs.name }}"
-      - name: Second interaction
+      - name: First interaction Action 2
         run: echo "Test action 2 - Bye"
+  test1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Second interaction Action 1
+        run: echo "Test action 1 - test1 action 1"
+      - name: Second interaction Action 2
+        run: echo "Test action 2 - test1 action 2"
+
 
