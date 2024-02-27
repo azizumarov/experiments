@@ -10,4 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: First interaction
-        run: echo "Test Job 1 - Hello ${{ github.event.inputs.name }}, run-job-3 equals ${{ github.event.inputs.run-job-3 }}"
+        run: echo "Test action 1 - Hello ${{ github.event.inputs.name }}"
+      - name: Second interaction
+        run: echo "Test action 2 - Bye"
+
