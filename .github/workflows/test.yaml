@@ -7,20 +7,21 @@ on:
         default: 'Aziz'
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+
+    runs-on: ${{ matrix.os }}
     steps:
+      - name: GitHub context 
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"      
+        
       - name: First interaction Action 1
         run: echo "Test action 1 - Hello ${{ github.event.inputs.name }}"
       - name: First interaction Action 2
         run: echo "Test action 2 - Bye"
-  test1:
-    runs-on: ubuntu-latest
-    needs:
-      - test
-    steps:
-      - name: Second interaction Action 1
-        run: echo "Test action 1 - test1 action 1"
-      - name: Second interaction Action 2
-        run: echo "Test action 2 - test1 action 2"
-
-
+  
